@@ -43,10 +43,10 @@ def prediction(Weight, MRP, Size):
       minmax_all = pd.DataFrame(minmax_all, columns=df_app.columns.tolist())
 
 
-    prediction = model_regressor.predict(
+      prediction = model_regressor.predict(
         [minmax_all])
-
-    return prediction
+      
+      return prediction
 
 if __name__=='__main__':
     main()
