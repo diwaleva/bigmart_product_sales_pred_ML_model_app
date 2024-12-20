@@ -1,7 +1,8 @@
 
 # loading the trained model
 pickle_in = open('bigmart_streamlit_app_model.pkl', 'rb')
-model_regressor = pickle.load(pickle_in)
+model_regressor = pickle.load(open('model.pkl','rb'))
+#model_regressor = pickle.load(pickle_in)
 
 # this is the main function in which we define our app
 def main():
