@@ -1,8 +1,12 @@
 
 # loading the trained model
-pickle_in = open('bigmart_streamlit_app_model.pkl', 'rb')
-model_regressor = pickle.load(open('model.pkl','rb'))
-#model_regressor = pickle.load(pickle_in)
+# pickle_in = open('bigmart_streamlit_app_model.pkl', 'rb')
+# model_regressor = pickle.load(open('model.pkl','rb'))
+
+filename = 'bigmart_streamlit_app_model.pkl'
+# Load the model from the file
+with open(filename, 'rb') as file:
+        model_regressor = pickle.load(file)
 
 # this is the main function in which we define our app
 def main():
@@ -36,9 +40,10 @@ def prediction(Weight, MRP, Size):
       if Size == "High":
         Size = 3.0
 
+      ## 3. Standardize the data using MinMaxScalar 
       df_app = pd.DataFrame()
       df_app = [Weight, MRP, Size]
-      ## Standardize the data using MinMaxScalar
+      
       scaler = preprocessing.MinMaxScaler()
       minmax_all = scaler.fit_transform(df_app)
       minmax_all = pd.DataFrame(minmax_all, columns=df_app.columns.tolist())
