@@ -1,20 +1,8 @@
 
 #import streamlit
 import streamlit as st
-
 import pickle as pickle
-# import the libraries
-import pandas as pd
-import numpy as np
-# importing required libraries
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error as mae
-# from sklearn.metrics import mean_squared_error
-from math import sqrt
-import pickle, csv
-import warnings
-warnings.filterwarnings('ignore')
+
 
 # loading the trained model
 # pickle_in = open('bigmart_streamlit_app_model.pkl', 'rb')
