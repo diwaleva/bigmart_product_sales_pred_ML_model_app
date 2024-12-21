@@ -8,10 +8,13 @@ import pickle as pickle
 # pickle_in = open('bigmart_streamlit_app_model.pkl', 'rb')
 # model_regressor = pickle.load(open('model.pkl','rb'))
 
-filename = 'bigmart_streamlit_app_model.pkl'
-# Load the model from the file
-with open(filename, 'rb') as file:
-        model_regressor = pickle.load(file)
+# filename = 'bigmart_streamlit_app_model.pkl'
+# # Load the model from the file
+# with open(filename, 'rb') as file:
+#         model_regressor = pickle.load(file)
+
+import joblib
+model_regressor = joblib.load('bigmart_app_model.sav')
 
 # this is the main function in which we define our app
 def main():
