@@ -22,8 +22,8 @@ def main():
     st.markdown(html_temp, unsafe_allow_html = True)
 
     # following lines create boxes in which user can enter data required to make prediction
-    Weight = st.number_input("Item Weight in lbs  (Ex: 3000.3333)")
-    MRP = st.number_input("Item MRP in $ (Ex: 3000.3333)")
+    Weight = st.number_input("Item Weight in lbs  (Ex: 10.3333)")
+    MRP = st.number_input("Item MRP in $ (Ex: 10.3333)")
     Size = st.selectbox('Outlet_Size',("Small","Medium","High"))
     result =""
 
@@ -44,15 +44,26 @@ def prediction(Weight, MRP, Size):
         Size = 3.0
 
       ## 3. Standardize the data using MinMaxScalar 
+
+      # Create a dataframe
       df_app = pd.DataFrame()
       df_app = [Weight, MRP, Size]
-      
+      df_app.reshape(-1,1)
+      # df_app['Weight'] = Weight
+      # df_app['MRP'] = MRP
+      # df_app['Size'] = Size
+
+      # apply minmax scalar to the dataframe
       scaler = preprocessing.MinMaxScaler()
       minmax_all = scaler.fit_transform(df_app)
       minmax_all = pd.DataFrame(minmax_all, columns=df_app.columns.tolist())
 
+      # Reshape the values before sending it to the model as it contains single sample
+      minmax_all.reshape(-1,1)
 
-      prediction = model_regressor.predict(minmax_all['Weights'], minmax_all['MRP'], minmax_all['Size'])
+
+      # Generate predictions using the model
+      prediction = model_regressor.predict(minmax_all['Weight'], minmax_all['MRP'], minmax_all['Size'])
       
       return prediction
 
