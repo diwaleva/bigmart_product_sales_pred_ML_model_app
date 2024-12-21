@@ -47,11 +47,14 @@ def prediction(Weight, MRP, Size):
 
       # Create a dataframe
       df_app = pd.DataFrame()
-      df_app = [Weight, MRP, Size]
+      # df_app = [Weight, MRP, Size]
 
-      # df_app['Weight'] = Weight
-      # df_app['MRP'] = MRP
-      # df_app['Size'] = Size
+      df_app['Weight'] = Weight
+      df_app['MRP'] = MRP
+      df_app['Size'] = Size
+
+      # reshape the dataframe since we have a single sample
+      df_app.reshape(1,-1)
 
       # apply minmax scalar to the dataframe
       scaler = preprocessing.MinMaxScaler()
