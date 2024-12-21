@@ -1,6 +1,4 @@
 pandas
-numpy
-pickle
 sklearn
 math
 warnings
