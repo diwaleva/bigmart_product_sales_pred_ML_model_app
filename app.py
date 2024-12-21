@@ -58,8 +58,8 @@ def prediction(Weight, MRP, Size):
       minmax_all = scaler.fit_transform(df_app)
       minmax_all = pd.DataFrame(minmax_all, columns=df_app.columns.tolist())
 
-      # Reshape the values before sending it to the model as it contains single sample
-      minmax_all.reshape(-1,1)
+      # Reshape the values before sending it to the model as it contains single sample  (for single feature we should apply(-1,1))
+      minmax_all.reshape(1, -1)
 
 
       # Generate predictions using the model
