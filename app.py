@@ -7,7 +7,6 @@ import pickle as pickle
 import pandas as pd
 import numpy as np
 # importing required libraries
-from sklearn import preprocessing
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error as mae
