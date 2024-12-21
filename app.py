@@ -1,7 +1,6 @@
 
-#import streamlit
 import streamlit as st
-import pickle as pickle
+import joblib
 
 
 # loading the trained model
