@@ -1,16 +1,12 @@
 
+#import required libraries
 import streamlit as st
-import joblib
+import pandas as pd
+from sklearn import preprocessing
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error as mae
 
-
-# loading the trained model
-# pickle_in = open('bigmart_streamlit_app_model.pkl', 'rb')
-# model_regressor = pickle.load(open('model.pkl','rb'))
-
-# filename = 'bigmart_streamlit_app_model.pkl'
-# # Load the model from the file
-# with open(filename, 'rb') as file:
-#         model_regressor = pickle.load(file)
 
 import joblib
 model_regressor = joblib.load('bigmart_app_model.sav')
